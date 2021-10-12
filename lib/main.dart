@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
+import 'pages/home_page.dart';
+import 'pages/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +20,19 @@ class MyApp extends StatelessWidget {
     const pi = 3.14;
     const a = "Hello"; // const can be assingned any value which would remain constant(can not be changed)
     return MaterialApp(
-      home: HomePage(),
+      //home: HomePage(),
+      themeMode: ThemeMode.light,//or ThemeMode.dark for dark.
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
+      initialRoute: "/home",
+      routes: {
+        "/" : (context) => LoginPage(),
+        "/home" : (context) => HomePage(),
+      },
     );
   }
 }

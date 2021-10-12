@@ -13,7 +13,13 @@ class HomePage extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            child: Text("Welcome to $day days of $name"),
+            child: Text("Welcome to $day days of $name",
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+            ),
+            ),
           ),
         ),
         drawer: Drawer(),
