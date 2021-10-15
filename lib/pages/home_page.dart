@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/models/catalog.dart';
+import 'package:flutter_application_2/widgets/drawer.dart';
+import 'package:flutter_application_2/widgets/item_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    int day = 30;
-    String name = "flutter";
+    final dummyList = List.generate(20,(index) => CatalogModel.items[0]);
     return Scaffold(
         appBar: AppBar(
           title: Text("Catalog App"),
         ),
-        body: Center(
-          child: Container(
-            child: Text("Welcome to $day days of $name",
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.blue,
-              fontWeight: FontWeight.bold,
-            ),
-            ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView.builder(
+            itemCount: dummyList.length,
+            itemBuilder: (context,index){
+              return ItemWidget(item: dummyList[index]);
+            },
           ),
         ),
-        drawer: Drawer(),
+        drawer: MyDrawer(),
       );
   }
 }
